@@ -39,10 +39,7 @@ public class GameManagerImplTest {
 
     @Test
     public void testAddJugadoraPartida(){
-        this.gm.addPartidaActual("LoL","Marcel");
-        this.gm.addPartidaActual("AC","Feynman");
 
-        //Assert.assertEquals();
     }
 
     @Test

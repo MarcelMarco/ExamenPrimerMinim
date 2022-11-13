@@ -1,18 +1,28 @@
 package edu.upc.eetac.dsa.models;
 
+import net.moznion.random.string.RandomStringGenerator;
+
 public class Partida {
+    private String IdPartida;
     private String IdJuego;
     private String IdJugador;
     private int puntos;
-    private String fecha;
+    private int nivelActual;
 
     public Partida(){}
 
-    public Partida(String IdJuego, String IdJugador, int puntos, String fecha){
+    public Partida(String IdJuego, String IdJugador){
+        this.IdPartida = RandomUtils();
         this.IdJuego = IdJuego;
         this.IdJugador = IdJugador;
-        this.puntos = puntos;
-        this.fecha = fecha;
+        this.puntos = 50;
+        this.nivelActual = 1;
+    }
+
+    private String RandomUtils() {
+        RandomStringGenerator generator = new RandomStringGenerator();
+        String randomString = generator.generateByRegex("\\w+\\d*[0-9]{0,8}");
+        return randomString;
     }
 
     public String getIdJuego() {
@@ -39,11 +49,24 @@ public class Partida {
         this.puntos = puntos;
     }
 
-    public String getFecha() {
-        return this.fecha;
+    public String getIdPartida() {
+        return this.IdPartida;
     }
 
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
+    public void setIdPartida(String idPartida) {
+        this.IdPartida = idPartida;
     }
+
+    public int getNivelActual() {
+        return this.nivelActual;
+    }
+
+    public void sumNivelActual(Integer x) {
+        this.nivelActual = this.nivelActual + x;
+    }
+
+    public void setNivelActual(int nivelActual) {
+        this.nivelActual = nivelActual;
+    }
+
 }
